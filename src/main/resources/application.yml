@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: notification-delivery-interview
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/notification_interview}
+    username: ${SPRING_DATASOURCE_USERNAME:interview}
+    password: ${SPRING_DATASOURCE_PASSWORD:interview}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+notifications:
+  worker:
+    enabled: ${NOTIFICATION_WORKER_ENABLED:true}
+  poll-delay-ms: 10000
+logging:
+  level:
+    com.example.interview.notifications: INFO
