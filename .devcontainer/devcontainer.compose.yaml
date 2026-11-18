@@ -1,0 +1,14 @@
+services:
+  workspace:
+    image: mcr.microsoft.com/devcontainers/java:1-21-bookworm
+    command: sleep infinity
+    volumes:
+      - ..:/workspace:cached
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/notification_interview
+      SPRING_DATASOURCE_USERNAME: interview
+      SPRING_DATASOURCE_PASSWORD: interview
+      NOTIFICATION_WORKER_ENABLED: false
+    depends_on:
+      postgres:
+        condition: service_healthy

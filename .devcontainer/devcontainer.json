@@ -1,0 +1,15 @@
+{
+  "name": "Notification Interview (Java 21 + PostgreSQL)",
+  "dockerComposeFile": [
+    "../compose.yaml",
+    "devcontainer.compose.yaml"
+  ],
+  "service": "workspace",
+  "runServices": [
+    "postgres",
+    "workspace"
+  ],
+  "workspaceFolder": "/workspace",
+  "remoteUser": "vscode",
+  "postCreateCommand": "mvn -B -ntp test"
+}

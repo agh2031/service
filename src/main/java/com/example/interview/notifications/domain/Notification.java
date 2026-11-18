@@ -65,7 +65,6 @@ public class Notification {
 
     public void recordFailure(Instant now) {
         this.attemptCount++;
-        // Current implementation retries on the next polling cycle.
         this.nextAttemptAt = now;
     }
 }

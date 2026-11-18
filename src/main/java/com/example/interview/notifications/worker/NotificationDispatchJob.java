@@ -29,7 +29,6 @@ public class NotificationDispatchJob {
     }
 
     public int dispatchBatch() {
-        // The repository query does not claim or lock a notification for this worker.
         List<Notification> due = repository
                 .findTop10ByStatusAndNextAttemptAtLessThanEqualOrderByIdAsc(
                         DeliveryStatus.PENDING, clock.instant());
